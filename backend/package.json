@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "set PORT=8081 && nodemon ./main.js",
+    "start": "set PORT='8081' && npm start"
+  },
+  "author": "Pedro Oliveira Sousa",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
