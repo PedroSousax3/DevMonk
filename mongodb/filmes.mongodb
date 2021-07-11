@@ -1,0 +1,3 @@
+use("DevMonk");
+
+db.filmes.find();
