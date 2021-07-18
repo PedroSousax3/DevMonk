@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "set PORT=8081 && nodemon ./main.js",
-    "start": "set PORT='8081' && npm start"
+    "start": "set PORT=8081 && node ./main.js"
   },
   "author": "Pedro Oliveira Sousa",
   "license": "ISC",

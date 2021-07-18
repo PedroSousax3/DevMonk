@@ -1,0 +1,53 @@
+use("DevMonk")
+
+show collections
+
+db.classificacao.insertMany(
+    [
+        { 
+            simbolo : "L",
+            nome : "livre",
+            descricao : "Livre para todas as idades",
+            cor : { nome : "verde", valor : "#03a44e" },
+            ordem : 1
+        },
+        {
+            simbolo : "10",
+            nome : "Dez",
+            descricao : "Não recomendado para menores de 10 anos",
+            cor : { nome : "azul", valor : "#0894c9" },
+            ordem : 2
+        },
+        {
+            simbolo : "12",
+            nome : "Doze",
+            descricao : "Não recomendado para menores de 12 anos",
+            cor : { nome : "amarelo", valor : "#f9cf25" },
+            ordem : 3
+        },
+        {
+            simbolo : "14",
+            nome : "Quatorze",
+            descricao : "Não recomendado para menores de 14 anos",
+            cor : { nome : "laranja", valor : "#f57f1f" },
+            ordem : 4
+        },
+        {
+            simbolo : "16",
+            nome : "Dezesseis",
+            descricao : "Não recomendado para menores de 16 anos",
+            cor : { nome : "vermelho", valor : "#e81121" },
+            ordem : 5
+        },
+        {
+            simbolo : "18",
+            nome : "Dezoito",
+            descricao : "Não recomendado para menores de 18 anos",
+            cor : { nome : "preto", valor : "#000000"},
+            ordem : 6
+        }
+    ]
+)
+
+
+db.classificacao.find().sort({ ordem : 1 })

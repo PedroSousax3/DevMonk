@@ -1,0 +1,25 @@
+use("DevMonk")
+
+
+db.sessao.aggregate([
+    { $match : { data : "2021-07-08" } },
+    { $project : { data : 1, filme : 1, horarios : 1 } }
+])
+
+db.sessao.aggregate([])
+
+
+db.sessao.aggregate([
+    { 
+        '$match' : {
+        data : "2021-07-01"
+        }
+    },
+    { 
+        '$project' : { 
+            data : 1, 
+            filme : 1, 
+            horarios : 1 
+        } 
+    }
+])

@@ -1,0 +1,39 @@
+show dbs
+
+use("DevMonk")
+
+
+db.sessao.aggregate(
+    [ 
+        { 
+            $match :  
+            {   
+                data : 
+                { 
+                    $gte : new Date().toLocaleDateString() 
+                } 
+            } 
+        }, 
+        { 
+            $group : 
+            {
+                _id : "$data"
+            }
+        },
+        { 
+            $sort : 
+            {
+                _id : 1 
+            } 
+        },
+        {
+            $project : { data : '$_id', _id : 0}
+        },
+        { 
+            $limit : 7 
+        } 
+    ]
+)
+
+db.sessao.find()
+
