@@ -25,4 +25,10 @@ export default class SessaDatabase {
                  .sort({ 'filme.nome': 1 })
                  .toArray();
     }
+
+    listMoviesPorNome(data, nome) {
+        return db.find(
+            { data : data, "filme.nome" : nome }
+        ).toArray();
+    }
 }

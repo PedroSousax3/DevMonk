@@ -11,9 +11,9 @@ router.get('/', async (req, resp) => {
         let { data } = req.query;
         data = montarObjetoData(data);
         let filmes = await service.listarFilmesDay(data);
+        console.log(filmes)
         resp.send(filmes)
     } catch (e) {
-        console.log(e)
         resp.status(500).send({
             error: e
         })

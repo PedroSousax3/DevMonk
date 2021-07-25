@@ -18,8 +18,62 @@ db.sessao.aggregate([
     { 
         '$project' : { 
             data : 1, 
-            filme : 1, 
+            filme : { "$toObjectId": "$filme" }, 
             horarios : 1 
         } 
+    },
+    { 
+        $lookup : { 
+            from: 'filmes', 
+            localField: 'filme',
+            foreignField: '_id', 
+            as: 'item'
+        }
+    },
+    { 
+        '$project' : { 
+            data : 1, 
+            filme : '$item',
+            horarios : 1
+        }
     }
 ])
+
+use('DevMonk')
+
+db.sessao.drop()
+
+db.sessao.aggregate([
+    { '$match': { data: { '$gte': '2021-07-01' } } },
+    { '$project': { data: 1, _id: 0 } },
+    { '$group': { _id: '$data' } },
+    { '$project': { data: '$_id', _id: 0 } },
+    { '$sort': { data: 1 } }, 
+    { '$limit': 7 }
+])
+
+db.sessao.aggregate([
+    { '$match' : { data : { $gte : '2021-07-01' } } },
+    { '$group': { _id: { data : '$data', filme : '$filme' } } },
+    { '$limit': 7 }
+])
+
+db.filmes.find()
+
+db.filmes.find({ 'nome' : "Beleza Americana"})
+
+db.sessao.find({ 'filme.nome' : "Mortal Kombat"})
+
+db.sessao.find()
+
+db.sessao.updateMany(
+    { 
+        'filme.nome' : "Mortal Kombat"
+    }, 
+    {
+        $set: 
+        {
+            filme : "60f315b402ce10b3c6fe95cd"
+        }      
+    }
+)

@@ -37,3 +37,144 @@ db.sessao.aggregate(
 
 db.sessao.find()
 
+
+
+use("DevMonk")
+
+db.lugares
+    .find({ 
+        "lugar.letra": -1, 
+        "lugar.numero": 1 
+    })
+    .project({ 
+        "_id": 0
+    })
+
+db.lugares.insertMany([
+    {
+        "_id": "60f6f6534a2b0ce9e6a16286",
+        "data": "2021-07-01",
+        "filme": "Cruella",
+        "hora": "09:00",
+        "sala": "01",
+        "lugar": {
+        "letra": "A",
+        "numero": 4,
+        "situacao": "Livre"
+        }
+    },
+    {
+        "_id": "60f6f6534a2b0ce9e6a16292",
+        "data": "2021-07-01",
+        "filme": "Cruella",
+        "hora": "09:00",
+        "sala": "01",
+        "lugar": {
+        "letra": "C",
+        "numero": 8,
+        "situacao": "Livre"
+        }
+    },
+    {
+        "_id": "60f6f6534a2b0ce9e6a16296",
+        "data": "2021-07-01",
+        "filme": "Cruella",
+        "hora": "09:00",
+        "sala": "01",
+        "lugar": {
+        "letra": "C",
+        "numero": 13,
+        "situacao": "Livre"
+        }
+    },
+    {
+        "_id": "60f6f6534a2b0ce9e6a1629e",
+        "data": "2021-07-01",
+        "filme": "Cruella",
+        "hora": "09:00",
+        "sala": "01",
+        "lugar": {
+        "letra": "D",
+        "numero": 14,
+        "situacao": "Livre"
+        }
+    },
+    {
+        "_id": "60f6f6534a2b0ce9e6a162a4",
+        "data": "2021-07-01",
+        "filme": "Cruella",
+        "hora": "09:00",
+        "sala": "01",
+        "lugar": {
+        "letra": "D",
+        "numero": 6,
+        "situacao": "Livre"
+        }
+    },
+    {
+        "_id": "60f6f6534a2b0ce9e6a162b4",
+        "data": "2021-07-01",
+        "filme": "Cruella",
+        "hora": "09:00",
+        "sala": "01",
+        "lugar": {
+        "letra": "E",
+        "numero": 13,
+        "situacao": "Livre"
+        }
+    },
+    {
+        "_id": "60f6f6534a2b0ce9e6a162c6",
+        "data": "2021-07-01",
+        "filme": "Cruella",
+        "hora": "09:00",
+        "sala": "01",
+        "lugar": {
+        "letra": "F",
+        "numero": 10,
+        "situacao": "Livre"
+        }
+    },
+    {
+        "_id": "60f6f6534a2b0ce9e6a162e7",
+        "data": "2021-07-01",
+        "filme": "Cruella",
+        "hora": "09:00",
+        "sala": "01",
+        "lugar": {
+        "letra": "H",
+        "numero": 4,
+        "situacao": "Livre"
+        }
+    },
+    {
+        "_id": "60f6f6534a2b0ce9e6a162ee",
+        "data": "2021-07-01",
+        "filme": "Cruella",
+        "hora": "09:00",
+        "sala": "01",
+        "lugar": {
+        "letra": "G",
+        "numero": 15,
+        "situacao": "Livre"
+        }
+    },
+    {
+        "_id": "60f6f6534a2b0ce9e6a162fb",
+        "data": "2021-07-01",
+        "filme": "Cruella",
+        "hora": "09:00",
+        "sala": "01",
+        "lugar": {
+        "letra": "I",
+        "numero": 18,
+        "situacao": "Livre"
+        }
+    }
+])
+
+use("ingressos")
+
+db.lugares.find()
+
+
